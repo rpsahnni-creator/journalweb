@@ -271,9 +271,30 @@ class ManuscriptSubmissionTest extends TestCase
         $this->actingAs($author)
             ->get(route('author.dashboard', ['q' => 'Visible draft']))
             ->assertOk()
+            ->assertSee('Author Console', false)
+            ->assertSee('Your manuscripts', false)
             ->assertSee('Visible draft manuscript', false)
             ->assertSee($mine->submission_number, false)
             ->assertDontSee('Someone else manuscript', false);
+    }
+
+    public function test_author_dashboard_shows_console_metrics_for_the_authors_manuscripts(): void
+    {
+        $author = $this->createAuthor();
+        $this->makeDraft($author, ['title' => 'Private draft manuscript']);
+        $this->makeDraft($author, [
+            'title' => 'Revision requested manuscript',
+            'status' => ArticleStatus::RevisionRequired,
+        ]);
+
+        $this->actingAs($author)
+            ->get(route('author.dashboard'))
+            ->assertOk()
+            ->assertSee('Author Console', false)
+            ->assertSee('Manuscripts by status', false)
+            ->assertSee('1 revision requested', false)
+            ->assertSee('Private draft manuscript', false)
+            ->assertSee('Revision requested manuscript', false);
     }
 
     public function test_resubmitting_after_revision_records_status_history(): void

@@ -1,12 +1,8 @@
-<x-layouts.app :title="$manuscript->title">
-    <x-author-nav />
-    <x-flash />
-
+<x-layouts.author :title="$manuscript->title">
     <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div>
-            <p class="font-mono text-sm text-slate-500">{{ $manuscript->submission_number }}</p>
-            <h1 class="mt-1 font-serif text-3xl font-semibold text-brand-950">{{ $manuscript->title }}</h1>
-            <p class="mt-2 text-slate-600">
+            <p class="font-mono text-xs text-slate-500">{{ $manuscript->submission_number }}</p>
+            <p class="mt-2 text-sm text-slate-600">
                 {{ $manuscript->article_type?->label() ?? 'No article type' }}
                 · {{ $manuscript->status->label() }}
             </p>
@@ -189,4 +185,4 @@
             @endforelse
         </ol>
     </section>
-</x-layouts.app>
+</x-layouts.author>

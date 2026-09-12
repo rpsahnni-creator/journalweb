@@ -11,15 +11,11 @@
     $supplementaryConfig = config('manuscripts.supplementary');
 @endphp
 
-<x-layouts.app title="Edit manuscript">
-    <x-author-nav />
-    <x-flash />
-
+<x-layouts.author :title="$manuscript->status === \App\Enums\ArticleStatus::RevisionRequired ? 'Revise manuscript' : 'Edit manuscript'">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
             <p class="text-xs font-medium uppercase tracking-wide text-slate-500">{{ $manuscript->submission_number }}</p>
-            <h1 class="font-serif text-3xl font-semibold text-brand-950">{{ $manuscript->status === \App\Enums\ArticleStatus::RevisionRequired ? 'Revise manuscript' : 'Edit draft' }}</h1>
-            <p class="mt-2 text-slate-600">Status: {{ $manuscript->status->label() }}. Submitted files stay on record; a new upload becomes the working copy for the next version.</p>
+            <p class="mt-1 text-sm text-slate-600">Status: {{ $manuscript->status->label() }}. Submitted files stay on record; a new upload becomes the working copy for the next version.</p>
         </div>
         <a href="{{ route('author.manuscripts.show', $manuscript) }}" class="text-sm font-medium text-brand-800 hover:underline">View submission</a>
     </div>
@@ -182,4 +178,4 @@
             </table>
         </section>
     @endif
-</x-layouts.app>
+</x-layouts.author>

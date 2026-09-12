@@ -1,11 +1,7 @@
-<x-layouts.app title="New manuscript">
-    <x-author-nav />
-    <x-flash />
+<x-layouts.author title="New manuscript">
+    <p class="text-sm text-slate-600">A unique manuscript number is assigned immediately. The draft remains private until you submit it.</p>
 
-    <h1 class="font-serif text-3xl font-semibold text-brand-950">Create draft manuscript</h1>
-    <p class="mt-2 text-slate-600">A unique manuscript number is assigned immediately. The draft remains private until you submit it.</p>
-
-    <form method="POST" action="{{ route('author.manuscripts.store') }}" class="mt-8 max-w-3xl space-y-4 rounded-lg border border-slate-200 bg-white p-6">
+    <form method="POST" action="{{ route('author.manuscripts.store') }}" class="mt-6 max-w-3xl space-y-4 rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs">
         @csrf
         <x-form.input name="title" label="Title" value="{{ old('title') }}" required />
         <x-form.select
@@ -20,4 +16,4 @@
         <x-form.input name="keywords" label="Keywords" value="{{ old('keywords') }}" placeholder="Comma-separated keywords" />
         <x-form.button :full="false">Create draft</x-form.button>
     </form>
-</x-layouts.app>
+</x-layouts.author>

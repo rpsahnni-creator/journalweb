@@ -1,11 +1,7 @@
-<x-layouts.app title="Author profile">
-    <x-author-nav />
-    <x-flash />
+<x-layouts.author title="Author profile">
+    <p class="text-sm text-slate-600">Your name and affiliation appear on manuscript submissions. Affiliation is required before you can submit.</p>
 
-    <h1 class="font-serif text-3xl font-semibold text-brand-950">Author profile</h1>
-    <p class="mt-2 text-slate-600">Your name and affiliation appear on manuscript submissions. Affiliation is required before you can submit.</p>
-
-    <form method="POST" action="{{ route('author.profile.update') }}" class="mt-8 max-w-2xl space-y-4 rounded-lg border border-slate-200 bg-white p-6">
+    <form method="POST" action="{{ route('author.profile.update') }}" class="mt-6 max-w-2xl space-y-4 rounded-xl border border-slate-200/80 bg-white p-6 shadow-xs">
         @csrf
         @method('PUT')
         <x-form.input name="name" label="Full name" value="{{ old('name', $user->name) }}" required />
@@ -16,4 +12,4 @@
         <x-form.textarea name="biography" label="Biography" rows="4">{{ old('biography', $user->biography) }}</x-form.textarea>
         <x-form.button :full="false">Save author profile</x-form.button>
     </form>
-</x-layouts.app>
+</x-layouts.author>
