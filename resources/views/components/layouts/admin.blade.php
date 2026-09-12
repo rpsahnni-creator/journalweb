@@ -25,7 +25,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['locale-hi' => app()->isLocale('hi')])>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <x-theme-init />
     <title>{{ $pageTitle }}</title>
@@ -99,7 +99,7 @@
     </aside>
 
 
-    <div class="min-h-screen lg:pl-72">
+    <div class="min-h-screen overflow-x-clip lg:pl-72">
         <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/95 backdrop-blur-md shadow-xs">
             <div class="flex items-center justify-between gap-4 px-4 py-3 sm:px-6">
                 <div class="flex min-w-0 items-center gap-3">
@@ -190,9 +190,11 @@
             </div>
         </header>
 
-        <main class="px-4 py-8 sm:px-6">
-            <x-flash />
-            {{ $slot }}
+        <main class="py-8">
+            <x-public-container>
+                <x-flash />
+                {{ $slot }}
+            </x-public-container>
         </main>
     </div>
 </body>

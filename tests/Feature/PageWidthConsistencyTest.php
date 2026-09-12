@@ -18,7 +18,7 @@ class PageWidthConsistencyTest extends TestCase
 {
     use RefreshDatabase;
 
-    private const HOME_WIDTH_CLASSES = 'mx-auto max-w-6xl px-4 sm:px-6 lg:px-8';
+    private const HOME_WIDTH_CLASSES = 'mx-auto max-w-public px-4 sm:px-6 lg:px-8';
 
     public function test_public_pages_use_the_home_page_content_width(): void
     {
@@ -109,6 +109,61 @@ class PageWidthConsistencyTest extends TestCase
             $this->expectedVisualPublicRouteNames(),
             $this->discoveredVisualPublicRouteNames(),
         );
+    }
+
+    public function test_workspace_pages_use_the_home_page_content_width(): void
+    {
+        $this->seed(DatabaseSeeder::class);
+
+        $author = $this->createUserWithRole(RoleSlug::Author);
+        $reviewer = $this->createUserWithRole(RoleSlug::Reviewer);
+        $editor = $this->createUserWithRole(RoleSlug::JournalManager);
+        $admin = $this->createUserWithRole(RoleSlug::Admin);
+
+        $this->actingAs($author)
+            ->get(route('author.dashboard'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($author)
+            ->get(route('author.manuscripts.create'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($reviewer)
+            ->get(route('reviewer.dashboard'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($editor)
+            ->get(route('editorial.dashboard'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($editor)
+            ->get(route('editorial.manuscripts.index'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($editor)
+            ->get(route('editorial.issues.index'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($admin)
+            ->get(route('admin.dashboard'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($admin)
+            ->get(route('admin.users.index'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
+
+        $this->actingAs($admin)
+            ->get(route('admin.journal.edit'))
+            ->assertOk()
+            ->assertSee(self::HOME_WIDTH_CLASSES, false);
     }
 
     /**

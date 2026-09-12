@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\CitationExportController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
@@ -72,6 +73,9 @@ Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:6,1')
     ->name('contact.store');
+Route::post('/chatbot', ChatbotController::class)
+    ->middleware('throttle:20,1')
+    ->name('chatbot');
 
 // RSS / Atom feeds.
 Route::get('/feed', [FeedController::class, 'articles'])->name('feed.articles');

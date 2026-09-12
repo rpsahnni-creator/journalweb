@@ -1,5 +1,5 @@
 <x-layouts.public title="Log in">
-    <div class="mx-auto w-full max-w-md rounded-2xl border border-slate-200/80 bg-white p-8 shadow-xl shadow-slate-200/40 ring-1 ring-slate-900/5">
+    <div class="mx-auto w-full max-w-md rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xl shadow-slate-200/40 ring-1 ring-slate-900/5 sm:p-8">
         <div class="mb-6">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800 ring-1 ring-brand-200/60 mb-3">
                 <x-icon name="lock" class="h-3 w-3" />

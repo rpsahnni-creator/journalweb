@@ -9,12 +9,12 @@
     @endif
 
     <section class="bg-brand-950 text-white">
-        <x-public-container class="py-16 text-center lg:py-24">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-accent-500">{{ __('ui.scholarly_publishing') }}</p>
-            <h1 class="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+        <x-public-container class="py-10 text-center sm:py-16 lg:py-24">
+            <p class="text-xs font-semibold uppercase tracking-widest text-accent-500 sm:text-sm sm:tracking-[0.2em]">{{ __('ui.scholarly_publishing') }}</p>
+            <h1 class="mx-auto mt-4 max-w-3xl font-serif text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
                 {{ $journal?->name ?? config('app.name') }}
             </h1>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
                 {{ $journal?->description ?: 'A working platform for academic journal operations. Published content appears here after editorial acceptance. Unpublished manuscripts remain private.' }}
             </p>
             <div class="mt-8 flex flex-wrap justify-center gap-3">
@@ -88,14 +88,14 @@
 
     <section class="bg-slate-50">
         <x-public-container class="py-16">
-            <div class="flex items-end justify-between gap-4">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
                 <div>
-                    <h2 class="font-serif text-3xl font-semibold text-brand-950">{{ __('ui.current_issue') }}</h2>
+                    <h2 class="font-serif text-2xl font-semibold text-brand-950 sm:text-3xl">{{ __('ui.current_issue') }}</h2>
                     <p class="mt-2 text-sm text-slate-600">
                         {{ $showCallForPapers ? __('ui.current_issue_open') : __('ui.only_published') }}
                     </p>
                 </div>
-                <a href="{{ route('issues.index') }}" class="text-sm font-semibold text-brand-800 hover:text-brand-700">{{ __('ui.previous_issues') }}</a>
+                <a href="{{ route('issues.index') }}" class="shrink-0 text-sm font-semibold text-brand-800 hover:text-brand-700">{{ __('ui.previous_issues') }}</a>
             </div>
 
             @if ($showCallForPapers)
@@ -103,7 +103,7 @@
             @elseif ($currentIssue)
                 <div class="mt-8 grid items-stretch gap-6 lg:grid-cols-2">
                     <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
-                        <div class="relative overflow-hidden bg-brand-950 px-7 py-10 text-white">
+                        <div class="relative overflow-hidden bg-brand-950 px-5 py-8 text-white sm:px-7 sm:py-10">
                             <div class="absolute -right-8 -top-10 h-40 w-40 rounded-full bg-accent-500/15 blur-2xl"></div>
                             <div class="relative">
                                 <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent-300 ring-1 ring-white/15">
@@ -201,7 +201,7 @@
 
     <section class="bg-white">
         <x-public-container class="py-16">
-            <h2 class="font-serif text-3xl font-semibold text-brand-950">{{ __('ui.recent_articles') }}</h2>
+            <h2 class="font-serif text-2xl font-semibold text-brand-950 sm:text-3xl">{{ __('ui.recent_articles') }}</h2>
             <div class="mt-8 grid gap-4 lg:grid-cols-2">
                 @forelse ($recentArticles as $article)
                     <x-article-card :article="$article" />

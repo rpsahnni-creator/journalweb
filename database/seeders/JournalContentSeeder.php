@@ -23,6 +23,10 @@ class JournalContentSeeder extends Seeder
 {
     public function run(): void
     {
+        if (app()->environment('production')) {
+            return;
+        }
+
         $journal = Journal::query()->updateOrCreate(
             ['slug' => 'academic-journal'],
             [

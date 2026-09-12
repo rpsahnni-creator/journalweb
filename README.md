@@ -90,11 +90,16 @@ php artisan test
 Production on [journal.srtc.ac.in](https://journal.srtc.ac.in) uses these files:
 
 - [`.env.production.example`](.env.production.example) — production environment placeholders (no secrets)
-- [`deploy.sh`](deploy.sh) — idempotent deploy script (`set -e`, stops on first failure)
-- [`docs/deploy/apache-vhost.conf`](docs/deploy/apache-vhost.conf) — sample Apache virtual host (`DocumentRoot` is `/public`)
+- [`deploy.sh`](deploy.sh) — production deploy script (refuses `APP_DEBUG=true`; never runs `--seed`)
+- [`docs/deploy/SHARED_HOSTING.md`](docs/deploy/SHARED_HOSTING.md) — cPanel / shared-hosting steps
+- [`docs/deploy/apache-vhost.conf`](docs/deploy/apache-vhost.conf) — Apache vhost (`DocumentRoot` is `/public`, HTTPS)
 
-1. Copy `.env.production.example` to `.env` and fill in real values.
-2. Run `deploy.sh`.
-3. Run `php artisan admin:create` once.
-4. Point DNS and enable SSL.
+Do this in order:
+
+1. On your PC: `npm install && npm run build` (shared hosting usually has no Node).
+2. Copy `.env.production.example` to the **server** `.env`. Set `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://journal.srtc.ac.in`, a new `APP_KEY`, real database password, and real SMTP.
+3. Point the domain Document Root at `public/`. Enable SSL. Make `storage/` and `bootstrap/cache/` writable.
+4. On the server: `php artisan migrate --force`, then `php artisan db:seed --force --class=ProductionSeeder`, then `php artisan storage:link --force`.
+5. Create the live admin once with `php artisan admin:create`. Do **not** run `php artisan migrate --seed`.
+6. If SSH is available, `bash deploy.sh`. Otherwise follow the shared-hosting upload list.
 

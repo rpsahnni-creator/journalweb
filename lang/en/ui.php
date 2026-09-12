@@ -127,4 +127,11 @@ return [
     'education_blurb' => 'Research on teaching, learning, curriculum, institutions and educational practice.',
     'society_blurb' => 'Interdisciplinary studies of communities, identity, culture and social change.',
     'interdisciplinary_blurb' => 'Research connecting concepts, methods and evidence across academic disciplines.',
+    'chatbot_title' => 'Journal assistant',
+    'chatbot_subtitle' => 'Answers about submissions, fees, and review',
+    'chatbot_open' => 'Ask the journal',
+    'chatbot_placeholder' => 'Ask about submissions, fees, or review…',
+    'chatbot_send' => 'Send',
+    'chatbot_thinking' => 'Looking that up…',
+    'chatbot_error' => 'The assistant is unavailable just now. Please try again, or use the Contact page.',
 ];

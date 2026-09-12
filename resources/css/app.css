@@ -38,11 +38,54 @@
     --color-accent-200: #ecd0a2;
     --color-accent-100: #f6e8d0;
     --color-accent-50: #fbf5ec;
+    /* 6xl (72rem) plus 0.7in on each side */
+    --max-width-public: calc(72rem + 1.4in);
 }
 
 /* ─── Smooth Scroll ─── */
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: clip;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+@supports (padding: max(0px)) {
+    header.sticky,
+    footer {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    header.sticky {
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
+@media (max-width: 639px) {
+    input:not([type='checkbox']):not([type='radio']):not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='file']):not([type='image']),
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
 }
 
 /* ─── Academic Grid Background ─── */

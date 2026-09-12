@@ -32,7 +32,7 @@
                 </a>
             @endif
             <span class="text-slate-300">/</span>
-            <span class="text-slate-700 font-medium truncate max-w-sm">{{ $article->title }}</span>
+            <span class="max-w-[12rem] truncate font-medium text-slate-700 sm:max-w-sm">{{ $article->title }}</span>
         </nav>
 
         <!-- Publication Meta Pill Strip -->
@@ -173,7 +173,7 @@
             </div>
 
             <!-- Social Share Buttons -->
-            <div class="ml-auto flex items-center gap-2">
+            <div class="flex w-full flex-wrap items-center gap-2 sm:ml-auto sm:w-auto">
                 <span class="text-xs font-medium text-slate-400 mr-1">{{ __('ui.share') }}:</span>
                 <a href="https://twitter.com/intent/tweet?text={{ urlencode($article->title) }}&url={{ urlencode($article->publicUrl()) }}"
                     target="_blank" rel="noopener" title="Share on X (Twitter)"
@@ -218,7 +218,7 @@
                 <div class="inline-flex items-center gap-2 rounded-lg bg-amber-50 px-4 py-2 text-sm ring-1 ring-amber-200/60">
                     <span class="font-semibold text-amber-800">DOI</span>
                     <a href="https://doi.org/{{ $article->doi }}" target="_blank" rel="noopener"
-                        class="font-mono text-amber-700 hover:text-amber-900 hover:underline">
+                        class="break-all font-mono text-amber-700 hover:text-amber-900 hover:underline">
                         {{ $article->doi }}
                     </a>
                 </div>

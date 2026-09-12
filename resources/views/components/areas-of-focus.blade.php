@@ -3,9 +3,9 @@
 ])
 
 <section {{ $attributes->class($background) }}>
-    <x-public-container class="py-16">
+    <x-public-container class="py-10 sm:py-16">
         <div class="text-center">
-            <h2 class="font-serif text-3xl font-bold tracking-tight text-brand-950 sm:text-4xl">{{ __('ui.areas') }}</h2>
+            <h2 class="font-serif text-2xl font-bold tracking-tight text-brand-950 sm:text-3xl lg:text-4xl">{{ __('ui.areas') }}</h2>
             <p class="mt-3 text-sm text-slate-500 sm:text-base">
                 {{ __('ui.areas_intro') }}
             </p>

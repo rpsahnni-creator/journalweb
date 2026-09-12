@@ -8,13 +8,15 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        $this->call(ProductionSeeder::class);
+
+        if (app()->environment('production')) {
+            return;
+        }
+
         $this->call([
-            RoleSeeder::class,
-            PermissionSeeder::class,
-            RolePermissionSeeder::class,
             AdminUserSeeder::class,
             JournalContentSeeder::class,
-            JournalIdentitySeeder::class,
         ]);
     }
 }

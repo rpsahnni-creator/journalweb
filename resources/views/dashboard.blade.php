@@ -6,9 +6,9 @@
                 <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-900 to-brand-800 text-white font-serif font-bold text-xl shadow-xs ring-4 ring-brand-50">
                     {{ strtoupper(substr($user->name, 0, 1)) }}
                 </div>
-                <div>
-                    <h1 class="font-serif text-2xl sm:text-3xl font-semibold text-brand-950">Welcome back, {{ $user->name }}</h1>
-                    <p class="mt-0.5 text-sm text-slate-500">{{ $user->email }}</p>
+                <div class="min-w-0">
+                    <h1 class="break-words font-serif text-2xl font-semibold text-brand-950 sm:text-3xl">Welcome back, {{ $user->name }}</h1>
+                    <p class="mt-0.5 break-all text-sm text-slate-500">{{ $user->email }}</p>
                 </div>
             </div>
             <div class="flex flex-wrap items-center gap-2">

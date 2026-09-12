@@ -12,7 +12,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['locale-hi' => app()->isLocale('hi')])>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <x-theme-init />
     <x-pwa-meta />
@@ -26,11 +26,12 @@
     <div class="flex min-h-screen flex-col">
         <x-navigation />
         <main class="flex-1">
-            <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+            <x-public-container class="py-10">
                 {{ $slot }}
-            </div>
+            </x-public-container>
         </main>
         <x-site-footer />
     </div>
+    <x-chatbot />
 </body>
 </html>

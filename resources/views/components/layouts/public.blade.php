@@ -18,7 +18,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['locale-hi' => app()->isLocale('hi')])>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <x-theme-init />
     <x-pwa-meta />
@@ -68,5 +68,6 @@
         </main>
         <x-site-footer />
     </div>
+    <x-chatbot />
 </body>
 </html>

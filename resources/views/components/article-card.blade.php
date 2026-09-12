@@ -2,7 +2,7 @@
     'article',
 ])
 
-<article class="card-hover-lift corner-accent group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-7 sm:p-8 shadow-sm">
+<article class="card-hover-lift corner-accent group flex min-w-0 flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm sm:p-7 lg:p-8">
     <div>
         <div class="flex flex-wrap items-center gap-2.5">
             @if ($article->article_type)
@@ -18,7 +18,7 @@
                 @endif
             </span>
             @if (filled($article->doi))
-                <span class="inline-flex items-center rounded-md bg-slate-50 px-2.5 py-0.5 font-mono text-[11px] text-slate-600 ring-1 ring-slate-200/80">
+                <span class="inline-flex max-w-full items-center rounded-md bg-slate-50 px-2.5 py-0.5 font-mono text-[11px] text-slate-600 ring-1 ring-slate-200/80 break-all">
                     DOI: {{ $article->doi }}
                 </span>
             @endif

@@ -6,7 +6,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['locale-hi' => app()->isLocale('hi')])>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <x-theme-init />
     <x-pwa-meta />
@@ -21,7 +21,7 @@
     <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[48rem] rounded-full bg-gradient-to-tr from-brand-200/40 via-accent-200/20 to-transparent blur-3xl"></div>
 
     <header class="relative z-10 border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
-        <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3.5 sm:px-6">
+        <div class="mx-auto flex max-w-public items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
             <a href="{{ route('home') }}" class="group flex items-center gap-3">
                 <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 text-accent-400 shadow-sm ring-1 ring-white/10 group-hover:shadow-md transition-all">
                     <x-icon name="book-open" class="h-4.5 w-4.5" />
@@ -45,7 +45,7 @@
     </main>
 
     <footer class="relative z-10 border-t border-slate-200/60 bg-white/60 backdrop-blur-sm py-4">
-        <div class="mx-auto max-w-5xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+        <div class="mx-auto max-w-public px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
             <div class="flex items-center gap-4">
                 <span class="inline-flex items-center gap-1.5">
                     <x-icon name="shield-check" class="h-3.5 w-3.5 text-emerald-600" />

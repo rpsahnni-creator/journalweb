@@ -79,7 +79,7 @@
                             rows="6"
                             required
                             placeholder="Write your detailed inquiry here..."
-                            class="mt-1.5 block w-full rounded-lg border border-slate-300/90 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-xs transition-colors placeholder:text-slate-400 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 leading-relaxed"
+                            class="mt-1.5 block w-full rounded-lg border border-slate-300/90 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-xs transition-colors placeholder:text-slate-400 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 leading-relaxed sm:text-sm"
                         >{{ old('message') }}</textarea>
                         @error('message')
                             <p class="mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-600">

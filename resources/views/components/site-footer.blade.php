@@ -7,7 +7,7 @@
 @endphp
 
 <footer class="border-t border-slate-200 bg-brand-950 text-slate-200">
-    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 lg:px-8">
+    <div class="mx-auto grid max-w-public gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 lg:px-8">
         <div class="md:col-span-2">
             <p class="flex items-center gap-2 font-serif text-lg font-semibold text-white">
                 <x-icon name="book-open" class="h-5 w-5 text-accent-500" />
@@ -70,10 +70,10 @@
             <form method="POST" action="{{ route('subscribe') }}" class="mt-5 space-y-2">
                 @csrf
                 <label for="toc-email" class="text-xs font-semibold uppercase tracking-wide text-white">{{ __('ui.issue_alerts') }}</label>
-                <div class="flex gap-2">
+                <div class="flex flex-col gap-2 sm:flex-row">
                     <input id="toc-email" type="email" name="email" required placeholder="you@institution.edu"
-                        class="w-full rounded-md border border-white/15 bg-white/10 px-3 py-2 text-xs text-white placeholder:text-slate-400">
-                    <button type="submit" class="rounded-md bg-accent-500 px-3 py-2 text-xs font-semibold text-brand-950 hover:bg-accent-400">{{ __('ui.join') }}</button>
+                        class="w-full min-w-0 rounded-md border border-white/15 bg-white/10 px-3 py-2.5 text-sm text-white placeholder:text-slate-400 sm:text-xs">
+                    <button type="submit" class="rounded-md bg-accent-500 px-3 py-2.5 text-sm font-semibold text-brand-950 hover:bg-accent-400 sm:text-xs">{{ __('ui.join') }}</button>
                 </div>
                 <p class="text-[11px] text-slate-400">{{ __('ui.alerts_hint') }}</p>
             </form>
@@ -91,7 +91,7 @@
     </div>
 
     <div class="border-t border-white/10">
-        <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-slate-400 sm:px-6 lg:px-8">
+        <p class="mx-auto max-w-public px-4 py-4 text-xs text-slate-400 sm:px-6 lg:px-8">
             &copy; {{ now()->year }} {{ $journal?->name ?? config('app.name') }}. {{ __('ui.all_rights') }}
         </p>
     </div>
