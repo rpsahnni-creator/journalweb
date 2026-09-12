@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /submissions
+Disallow: /reviews
+
+Sitemap: https://journal.srtc.ac.in/sitemap.xml
